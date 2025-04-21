@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Placeholder Images</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="expiry" width="400" height="300"></canvas>
+    <canvas id="recipe" width="400" height="300"></canvas>
+    <canvas id="smart" width="400" height="300"></canvas>
+    <canvas id="GROS" width="400" height="300"></canvas>
+
+    <script>
+        function createImage(canvasId, text, color) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = color;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = '24px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(text, canvas.width/2, canvas.height/2);
+            
+            // Save as image
+            const link = document.createElement('a');
+            link.download = canvasId + '.jpg';
+            link.href = canvas.toDataURL('image/jpeg');
+            link.click();
+        }
+
+        // Generate images
+        createImage('expiry', 'Expiry Tracking', '#4CAF50');
+        createImage('recipe', 'Recipe Suggestions', '#2196F3');
+        createImage('smart', 'Smart Shopping', '#FF9800');
+        createImage('GROS', 'Smart Grocery', '#9C27B0');
+    </script>
+</body>
+</html> 

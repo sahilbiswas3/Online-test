@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GroceSolv</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+            overflow: hidden;
+            padding-top: 0px; /* Reduced padding to move content higher */
+        }
+
+        .about-hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.8;
+            top: 0;
+        }
+
+        .about-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 20px;
+            margin-top: 0px; /* Reduced margin to move content higher */
+        }
+
+        .about-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .about-hero p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .mission-statement {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white;
+            margin: 40px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-statement .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .mission-statement h2 {
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 2.2em;
+        }
+
+        .mission-statement p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #34495e;
+            margin: 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            border: 4px solid white;
+        }
+
+        .team-member h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.6em;
+        }
+
+        .team-member .role {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .team-member .bio {
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .achievements {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .achievements h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .achievements ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            margin-bottom: 10px;
+            color: #34495e;
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        section {
+            margin-bottom: 80px;
+            background-color: white;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html"><h1>GroceSolv</h1></a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html#mission">About Us</a>
+            <a href="expiry-tracking.html">Expiry Tracking</a>
+            <a href="recipe-suggestions.html">Recipe Suggestions</a>
+            <a href="smart-shopping.html">Smart Shopping</a>
+            <a href="index.html#faqs">FAQs</a>
+            <a href="login.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="about-hero">
+            <img src="GROS extended.jpg" alt="GroceSolv Background">
+            <div class="hero-content">
+                <h1>About GroceSolv</h1>
+                <p>At GroceSolv, we're revolutionizing the way people manage their groceries. Our mission is to reduce food waste while making grocery management effortless and intuitive. Through innovative technology and user-friendly design, we're helping households save money and contribute to a more sustainable future.</p>
+            </div>
+        </section>
+
+        <section class="mission-statement">
+            <div class="container">
+                <h2>Our Mission</h2>
+                <p>We strive to create a world where food waste is minimized through smart technology and conscious consumption. Our platform empowers users to make informed decisions about their grocery purchases, track expiration dates effectively, and discover creative ways to use their ingredients.</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="Sayeb.jpg" alt="Sk Sayeb Aktar">
+                    <h3>Sk Sayeb Aktar</h3>
+                    <p class="role">CEO & Co-founder</p>
+                    <p class="bio">A passionate tech entrepreneur with a vision to revolutionize grocery management. Sayeb's expertise in AI and sustainable solutions has been instrumental in shaping GroceSolv's innovative features.</p>
+                    <div class="achievements">
+                        <h4>Achievements</h4>
+                        <ul>
+                            <li>IIT Kharagpur Graduate</li>
+                            <li>Former Tech Lead at Amazon</li>
+                            <li>Forbes 30 Under 30 Nominee</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="Sahil.jpg" alt="Sahil Biswas">
+                    <h3>Sahil Biswas</h3>
+                    <p class="role">CTO & Co-founder</p>
+                    <p class="bio">A brilliant technologist with deep expertise in machine learning and data analytics. Sahil leads our technical innovation, ensuring GroceSolv stays at the forefront of smart grocery management solutions.</p>
+                    <div class="achievements">
+                        <h4>Achievements</h4>
+                        <ul>
+                            <li>Stanford University Alumni</li>
+                            <li>Ex-Google AI Researcher</li>
+                            <li>Published Author in ML</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#about">About Us</a>
+                <a href="#help">Help</a>
+                <a href="#download">Download</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: support@grocesolv.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GroceSolv. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

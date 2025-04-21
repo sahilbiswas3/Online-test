@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Product - Smart Grocery</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="buy.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="index.html"><h1>GroceSolv</h1></a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#mission">About Us</a>
+        <a href="expiry-tracking.html">Expiry Tracking</a>
+        <a href="recipe-suggestions.html">Recipe Suggestions</a>
+        <a href="smart-shopping.html">Smart Shopping</a>
+        <a href="index.html#faqs">FAQs</a>
+        <a href="login.html" class="btn btn-primary">Get Started</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="product-details">
+        <div class="product-container">
+          <div class="product-image">
+            <img id="productImage" src="" alt="Product Image" />
+          </div>
+          <div class="product-info">
+            <h1 id="productName"></h1>
+            <p class="price" id="productPrice"></p>
+            <div class="product-description">
+              <h3>Description</h3>
+              <p id="productDescription"></p>
+            </div>
+            <div class="product-features">
+              <h3>Features</h3>
+              <ul id="productFeatures"></ul>
+            </div>
+            <button class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
+            <button class="btn btn-outline" onclick="buyNow()">Buy Now</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Company</h3>
+          <a href="index.html#about">About Us</a>
+          <a href="index.html#help">Help</a>
+          <a href="index.html#download">Download</a>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <a href="index.html#privacy">Privacy Policy</a>
+          <a href="index.html#terms">Terms of Service</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: support@smartgrocery.com</p>
+          <p>Phone: (555) 123-4567</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Smart Grocery. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Product data
+      const products = {
+        apple: {
+          name: "Fresh Apples",
+          price: "₹90.10/kg",
+          image: "apple.webp",
+          description: "Crisp and juicy organic apples, perfect for snacking or baking.",
+          features: [
+            "Organic Certified",
+            "Locally Grown",
+            "Rich in Fiber",
+            "No Pesticides"
+          ]
+        },
+        milk: {
+          name: "Organic Milk",
+          price: "₹94/liter",
+          image: "Milk.webp",
+          description: "Fresh organic milk from grass-fed cows, rich in calcium and vitamins.",
+          features: [
+            "Organic Certified",
+            "Grass-Fed",
+            "Rich in Calcium",
+            "No Hormones"
+          ]
+        },
+        bread: {
+          name: "Whole Grain Bread",
+          price: "₹49/pack",
+          image: "Bread.jpeg",
+          description: "Freshly baked whole grain bread, perfect for sandwiches and toast.",
+          features: [
+            "Whole Grain",
+            "No Preservatives",
+            "High in Fiber",
+            "Freshly Baked"
+          ]
+        },
+        eggs: {
+          name: "Eggs",
+          price: "₹50.17/dozen",
+          image: "eggs.webp",
+          description: "Farm-fresh free range eggs from happy, healthy chickens.",
+          features: [
+            "Free Range",
+            "Farm Fresh",
+            "Rich in Protein",
+            "No Antibiotics"
+          ]
+        },
+        chicken: {
+          name: "Organic Chicken",
+          price: "₹475.00/kg",
+          image: "Organic_chicken.jpg",
+          description: "Premium organic chicken, raised without antibiotics or hormones.",
+          features: [
+            "Organic Certified",
+            "No Antibiotics",
+            "No Hormones",
+            "Free Range"
+          ]
+        },
+        tomatoes: {
+          name: "Fresh Tomatoes",
+          price: "₹29.00/kg",
+          image: "Tomatoes.jpeg",
+          description: "Vine-ripened tomatoes, bursting with flavor and nutrients.",
+          features: [
+            "Vine-Ripened",
+            "Locally Grown",
+            "Rich in Lycopene",
+            "No Pesticides"
+          ]
+        }
+      };
+
+      // Get product from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('product');
+
+      // Display product details
+      if (productId && products[productId]) {
+        const product = products[productId];
+        document.getElementById('productName').textContent = product.name;
+        document.getElementById('productPrice').textContent = product.price;
+        document.getElementById('productImage').src = product.image;
+        document.getElementById('productDescription').textContent = product.description;
+        
+        const featuresList = document.getElementById('productFeatures');
+        product.features.forEach(feature => {
+          const li = document.createElement('li');
+          li.textContent = feature;
+          featuresList.appendChild(li);
+        });
+      } else {
+        // Redirect to shopping page if product not found
+        window.location.href = 'smart-shopping.html';
+      }
+
+      function addToCart() {
+        alert('Product added to cart!');
+      }
+
+      function buyNow() {
+        alert('Proceeding to checkout...');
+      }
+    </script>
+  </body>
+</html> 

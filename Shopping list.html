@@ -1,0 +1,112 @@
+<nav class="navbar" style="background: white; padding: 0.5rem 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;">
+  <div class="nav-brand">
+    <a href="index.html" style="text-decoration: none;">
+      <h1 style="color: #4caf50; font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">GroceSolv</h1>
+    </a>
+  </div>
+  <div class="nav-links" style="display: flex; gap: 2rem; align-items: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
+    <a href="index.html" style="text-decoration: none; color: #333;">Home</a>
+    <a href="expiry-tracking.html" style="text-decoration: none; color: #333;">Expiry Tracking</a>
+    <a href="recipe-suggestions.html" style="text-decoration: none; color: #333;">Recipe Suggestions</a>
+    <a href="smart-shopping.html" style="text-decoration: none; color: #333;">Smart Shopping</a>
+    <a href="login.html" style="text-decoration: none; color: white; background: #4caf50; padding: 8px 15px; border-radius: 4px;">Login</a>
+  </div>
+</nav>
+
+<div style="min-height: 100vh; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding-top: 80px; padding-bottom: 60px;">
+  <div class="todo-container" style="max-width: 500px; margin: 20px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
+    <h2 style="color: #4caf50; margin-bottom: 20px; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Shopping List</h2>
+    
+    <div class="progress-container" style="margin-bottom: 20px;">
+      <div style="width: 100%; background-color: #f0f0f0; border-radius: 10px; overflow: hidden;">
+        <div id="progressBar" style="width: 0%; height: 20px; background-color: #4caf50; transition: width 0.3s ease;"></div>
+      </div>
+      <p id="progressText" style="text-align: center; margin-top: 5px; color: #666; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">0% Complete</p>
+    </div>
+
+    <div style="display: flex; margin-bottom: 20px;">
+      <input type="text" id="newItem" placeholder="Add new item..." style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-right: 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <button onclick="addItem()" style="background-color: #4caf50; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Add</button>
+    </div>
+
+    <ul id="itemList" style="list-style-type: none; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <!-- Items will be added here dynamically -->
+    </ul>
+
+    <button onclick="clearList()" style="width: 100%; background-color: #ff9800; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; margin-top: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Clear List</button>
+  </div>
+</div>
+
+<footer style="background: #2c3e50; color: white; padding: 20px; text-align: center; position: fixed; bottom: 0; width: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <p>&copy; 2023 Smart Grocery. All rights reserved.</p>
+</footer>
+
+<script>
+  function updateProgress() {
+    const totalItems = document.querySelectorAll('#itemList li').length;
+    const checkedItems = document.querySelectorAll('#itemList input[type="checkbox"]:checked').length;
+    const progressPercent = totalItems === 0 ? 0 : (checkedItems / totalItems) * 100;
+    
+    document.getElementById('progressBar').style.width = progressPercent + '%';
+    document.getElementById('progressText').textContent = Math.round(progressPercent) + '% Complete';
+  }
+
+  function clearList() {
+    document.getElementById('itemList').innerHTML = '';
+    updateProgress();
+  }
+
+  function addItem() {
+    const input = document.getElementById('newItem');
+    const list = document.getElementById('itemList');
+    
+    if(input.value.trim()) {
+      const li = document.createElement('li');
+      li.style.display = 'flex';
+      li.style.alignItems = 'center';
+      li.style.marginBottom = '10px';
+      
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.style.marginRight = '10px';
+      checkbox.addEventListener('change', function() {
+        const spanText = this.nextElementSibling;
+        if(this.checked) {
+          spanText.style.textDecoration = 'line-through';
+          spanText.style.color = '#888';
+        } else {
+          spanText.style.textDecoration = 'none';
+          spanText.style.color = 'initial';
+        }
+        updateProgress();
+      });
+
+      const span = document.createElement('span');
+      span.style.flex = '1';
+      span.textContent = input.value;
+      span.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.style.backgroundColor = '#f44336';
+      deleteBtn.style.color = 'white';
+      deleteBtn.style.border = 'none';
+      deleteBtn.style.padding = '5px 10px';
+      deleteBtn.style.borderRadius = '4px';
+      deleteBtn.style.cursor = 'pointer';
+      deleteBtn.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+      deleteBtn.onclick = function() {
+        this.parentElement.remove();
+        updateProgress();
+      };
+
+      li.appendChild(checkbox);
+      li.appendChild(span);
+      li.appendChild(deleteBtn);
+      
+      list.appendChild(li);
+      input.value = '';
+      updateProgress();
+    }
+  }
+</script>

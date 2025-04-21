@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Shopping - Smart Grocery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="smart-shopping.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html"><h1>GroceSolv</h1></a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html#mission">About Us</a>
+            <a href="expiry-tracking.html">Expiry Tracking</a>
+            <a href="recipe-suggestions.html">Recipe Suggestions</a>
+            <a href="smart-shopping.html">Smart Shopping</a>
+            <a href="index.html#faqs">FAQs</a>
+            <a href="login.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="smart-shopping">
+            <h1>Smart Shopping</h1>
+            <p class="subtitle">Shop smarter with our curated selection of fresh products</p>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card" onclick="redirectToBuy('apple')">
+                    <img src="apple.webp" alt="Fresh Apples" />
+                    <h3>Fresh Apples</h3>
+                    <p class="price">₹90.10/kg</p>
+                    <button class="btn btn-outline">View Details</button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" onclick="redirectToBuy('milk')">
+                    <img src="Milk.webp" alt="Organic Milk" />
+                    <h3>Organic Milk</h3>
+                    <p class="price">₹94/liter</p>
+                    <button class="btn btn-outline">View Details</button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" onclick="redirectToBuy('bread')">
+                    <img src="Bread.jpeg" alt="Whole Grain Bread" />
+                    <h3>Whole Grain Bread</h3>
+                    <p class="price">₹49/pack</p>
+                    <button class="btn btn-outline">View Details</button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" onclick="redirectToBuy('eggs')">
+                    <img src="eggs.webp" alt="Free Range Eggs" />
+                    <h3>Eggs</h3>
+                    <p class="price">₹50.17/dozen</p>
+                    <button class="btn btn-outline">View Details</button>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" onclick="redirectToBuy('chicken')">
+                    <img src="Organic_chicken.jpg" alt="Organic Chicken" />
+                    <h3>Organic Chicken</h3>
+                    <p class="price">₹475.00/kg</p>
+                    <button class="btn btn-outline">View Details</button>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" onclick="redirectToBuy('tomatoes')">
+                    <img src="Tomatoes.jpeg" alt="Fresh Tomatoes" />
+                    <h3>Fresh Tomatoes</h3>
+                    <p class="price">₹29.05/kg</p>
+                    <button class="btn btn-outline">View Details</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="index.html#about">About Us</a>
+                <a href="index.html#help">Help</a>
+                <a href="index.html#download">Download</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="index.html#privacy">Privacy Policy</a>
+                <a href="index.html#terms">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: support@smartgrocery.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Smart Grocery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function redirectToBuy(product) {
+            window.location.href = `buy.html?product=${product}`;
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Grocery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar dashboard-nav">
+        <div class="nav-brand">
+            <a href="index.html"><h1>GroceSolv</h1></a>
+        </div>
+        <div class="nav-links">
+            <a href="inventory.html">Inventory</a>
+            <a href="expiring.html">Expiring Soon</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="shopping.html">Shopping List</a>
+            <button onclick="logout()" class="btn btn-outline">Logout</button>
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+        <h1>Welcome, <span id="user-name">User</span>!</h1>
+        
+        <div class="dashboard-grid">
+            <div class="dashboard-card" onclick="window.location.href='inventory.html'">
+                <h2>Inventory Management</h2>
+                <p>Track your groceries and their expiry dates</p>
+                <div class="card-stats">
+                    <div class="stat">
+                        <span id="total-items">0</span>
+                        <label>Total Items</label>
+                    </div>
+                    <div class="stat">
+                        <span id="expiring-count">0</span>
+                        <label>Expiring Soon</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card" onclick="window.location.href='expiring.html'">
+                <h2>Expiring Soon</h2>
+                <p>Items that need your attention</p>
+                <div id="expiring-preview">
+                    <p>No items expiring soon</p>
+                </div>
+            </div>
+
+            <div class="dashboard-card" onclick="window.location.href='recipes.html'">
+                <h2>Recipe Suggestions</h2>
+                <p>Make the most of your ingredients</p>
+                <div id="recipe-preview">
+                    <p>Loading recipes...</p>
+                </div>
+            </div>
+
+            <div class="dashboard-card" onclick="window.location.href='shopping.html'">
+                <h2>Shopping List</h2>
+                <p>Smart shopping recommendations</p>
+                <div id="shopping-preview">
+                    <p>Generate your shopping list</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html> 
